@@ -82,7 +82,9 @@ function handlePlayerChoice(playerChoice) {
         const gameWinner = getWinner(playerChoice, resolve);
         const resultMessageElement = document.getElementById("resultMessage");
         resultMessageElement.textContent = gameWinner === 'player' ? "YOU WON AGAINST PC" :
-            gameWinner === 'npc' ? "YOU LOST AGAINST PC" : "IT'S A DRAW";
+            gameWinner === 'npc' ? "YOU LOST AGAINST PC" : "TIE UP";
+
+        playAgainBtn.textContent = gameWinner === 'draw' ? "REPLAY" : "PLAY AGAIN";
 
         const npcChoiceElements = document.getElementById(`npcChoice${resolve.charAt(0).toUpperCase() + resolve.slice(1)}`);
         npcChoiceElements.style.display = 'flex';
