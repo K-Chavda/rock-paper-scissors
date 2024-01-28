@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="mainContainer">
+      <div class="scoreContainer">
+        <div class="headingConatiner">
+          <h1>ROCK PAPER SCISSORS</h1>
+        </div>
+        <div class="NPCScoreContainer">
+          <div class="scoreCardHeadingContainer">
+            COMPUTER <br />
+            SCORE
+          </div>
+          <div class="NPCScoreDisplay"></div>
+        </div>
+        <div class="playerScoreContainer">
+          <div class="scoreCardHeadingContainer">
+            YOUR <br />
+            SCORE
+          </div>
+          <div class="playerScoreDisplay"></div>
+        </div>
+      </div>
+      <div class="choiceAndResultContainer">
+        <div class="choiceContainer">
+          <div class="triangleLine">
+            <svg width="400" height="350" xmlns="http://www.w3.org/2000/svg">
+              <polygon
+                points="200,20 375,330 25,330"
+                fill="none"
+                stroke="#000000"
+                stroke-width="10"
+                opacity="0.65"
+              />
+            </svg>
+          </div>
+          <div
+            class="rockChoiceContainer"
+            value="0"
+            onclick="handlePlayerChoice('rock')"
+          >
+            <div class="rockChoice" style="height: 50px; width: 50px">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path
+                  d="M144 0C117.5 0 96 21.5 96 48V96v28.5V176c0 8.8-7.2 16-16 16s-16-7.2-16-16V149.3l-9 7.5C40.4 169 32 187 32 206V244c0 38 16.9 74 46.1 98.3L128 384v96c0 17.7 14.3 32 32 32H320c17.7 0 32-14.3 32-32V374.7c46.9-19 80-65 80-118.7V176 160 144c0-26.5-21.5-48-48-48c-12.4 0-23.6 4.7-32.1 12.3C350 83.5 329.3 64 304 64c-12.4 0-23.6 4.7-32.1 12.3C270 51.5 249.3 32 224 32c-12.4 0-23.6 4.7-32.1 12.3C190 19.5 169.3 0 144 0z"
+                />
+              </svg>
+            </div>
+          </div>
+          <div
+            class="paperChoiceContainer"
+            value="1"
+            onclick="handlePlayerChoice('paper')"
+          >
+            <div class="paperChoice" style="height: 50px; width: 50px">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path
+                  d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V240c0 8.8-7.2 16-16 16s-16-7.2-16-16V64c0-17.7-14.3-32-32-32s-32 14.3-32 32V336c0 1.5 0 3.1 .1 4.6L67.6 283c-16-15.2-41.3-14.6-56.6 1.4s-14.6 41.3 1.4 56.6L124.8 448c43.1 41.1 100.4 64 160 64H304c97.2 0 176-78.8 176-176V128c0-17.7-14.3-32-32-32s-32 14.3-32 32V240c0 8.8-7.2 16-16 16s-16-7.2-16-16V64c0-17.7-14.3-32-32-32s-32 14.3-32 32V240c0 8.8-7.2 16-16 16s-16-7.2-16-16V32z"
+                />
+              </svg>
+            </div>
+          </div>
+          <div
+            class="scissorChoiceContainer"
+            value="2"
+            onclick="handlePlayerChoice('scissors')"
+          >
+            <div class="scissorChoice" style="height: 50px; width: 50px">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path
+                  d="M40 208c-22.1 0-40 17.9-40 40s17.9 40 40 40l180.2 0c-7.6 8.5-12.2 19.7-12.2 32c0 25.3 19.5 46 44.3 47.9c-7.7 8.5-12.3 19.8-12.3 32.1c0 26.5 21.5 48 48 48l32 0 64 0c70.7 0 128-57.3 128-128l0-113.1c0-40.2-16-78.8-44.4-107.3C444.8 76.8 413.9 64 381.7 64L336 64c-21.3 0-39.3 13.9-45.6 33.1l74.5 23.7c8.4 2.7 13.1 11.7 10.4 20.1s-11.7 13.1-20.1 10.4L288 129.9l0 .1L84 65.8C62.9 59.2 40.5 70.9 33.8 92s5.1 43.5 26.2 50.2L269.5 208 40 208z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="resultContainer">
+          <div class="playerChoiceResult">
+            <div class="rippleEffect"></div>
+            <div id="playerChoiceRock" class="rockChoiceContainer" value="0">
+              <div
+                class="rockChoice playerChoice"
+                style="height: 50px; width: 50px"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                  <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                  <path
+                    d="M144 0C117.5 0 96 21.5 96 48V96v28.5V176c0 8.8-7.2 16-16 16s-16-7.2-16-16V149.3l-9 7.5C40.4 169 32 187 32 206V244c0 38 16.9 74 46.1 98.3L128 384v96c0 17.7 14.3 32 32 32H320c17.7 0 32-14.3 32-32V374.7c46.9-19 80-65 80-118.7V176 160 144c0-26.5-21.5-48-48-48c-12.4 0-23.6 4.7-32.1 12.3C350 83.5 329.3 64 304 64c-12.4 0-23.6 4.7-32.1 12.3C270 51.5 249.3 32 224 32c-12.4 0-23.6 4.7-32.1 12.3C190 19.5 169.3 0 144 0z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div id="playerChoicePaper" class="paperChoiceContainer" value="1">
+              <div
+                class="paperChoice playerChoice"
+                style="height: 50px; width: 50px"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                  <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                  <path
+                    d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V240c0 8.8-7.2 16-16 16s-16-7.2-16-16V64c0-17.7-14.3-32-32-32s-32 14.3-32 32V336c0 1.5 0 3.1 .1 4.6L67.6 283c-16-15.2-41.3-14.6-56.6 1.4s-14.6 41.3 1.4 56.6L124.8 448c43.1 41.1 100.4 64 160 64H304c97.2 0 176-78.8 176-176V128c0-17.7-14.3-32-32-32s-32 14.3-32 32V240c0 8.8-7.2 16-16 16s-16-7.2-16-16V64c0-17.7-14.3-32-32-32s-32 14.3-32 32V240c0 8.8-7.2 16-16 16s-16-7.2-16-16V32z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div
+              id="playerChoiceScissors"
+              class="scissorChoiceContainer"
+              value="2"
+            >
+              <div
+                class="scissorChoice playerChoice"
+                style="height: 50px; width: 50px"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                  <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                  <path
+                    d="M40 208c-22.1 0-40 17.9-40 40s17.9 40 40 40l180.2 0c-7.6 8.5-12.2 19.7-12.2 32c0 25.3 19.5 46 44.3 47.9c-7.7 8.5-12.3 19.8-12.3 32.1c0 26.5 21.5 48 48 48l32 0 64 0c70.7 0 128-57.3 128-128l0-113.1c0-40.2-16-78.8-44.4-107.3C444.8 76.8 413.9 64 381.7 64L336 64c-21.3 0-39.3 13.9-45.6 33.1l74.5 23.7c8.4 2.7 13.1 11.7 10.4 20.1s-11.7 13.1-20.1 10.4L288 129.9l0 .1L84 65.8C62.9 59.2 40.5 70.9 33.8 92s5.1 43.5 26.2 50.2L269.5 208 40 208z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="gameResultContainer">
+            <div class="gameResultHeading">
+              <div id="resultMessage" class="resultMessage"></div>
+            </div>
+            <div id="playAgainBtn" class="playAgainButton">PLAY AGAIN</div>
+          </div>
+          <div class="NPCChoiceResult">
+            <div class="rippleEffect"></div>
+            <div id="npcChoiceRock" class="rockChoiceContainer" value="0">
+              <div class="rockChoice" style="height: 50px; width: 50px">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                  <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                  <path
+                    d="M144 0C117.5 0 96 21.5 96 48V96v28.5V176c0 8.8-7.2 16-16 16s-16-7.2-16-16V149.3l-9 7.5C40.4 169 32 187 32 206V244c0 38 16.9 74 46.1 98.3L128 384v96c0 17.7 14.3 32 32 32H320c17.7 0 32-14.3 32-32V374.7c46.9-19 80-65 80-118.7V176 160 144c0-26.5-21.5-48-48-48c-12.4 0-23.6 4.7-32.1 12.3C350 83.5 329.3 64 304 64c-12.4 0-23.6 4.7-32.1 12.3C270 51.5 249.3 32 224 32c-12.4 0-23.6 4.7-32.1 12.3C190 19.5 169.3 0 144 0z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div id="npcChoicePaper" class="paperChoiceContainer" value="1">
+              <div class="paperChoice" style="height: 50px; width: 50px">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                  <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                  <path
+                    d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V240c0 8.8-7.2 16-16 16s-16-7.2-16-16V64c0-17.7-14.3-32-32-32s-32 14.3-32 32V336c0 1.5 0 3.1 .1 4.6L67.6 283c-16-15.2-41.3-14.6-56.6 1.4s-14.6 41.3 1.4 56.6L124.8 448c43.1 41.1 100.4 64 160 64H304c97.2 0 176-78.8 176-176V128c0-17.7-14.3-32-32-32s-32 14.3-32 32V240c0 8.8-7.2 16-16 16s-16-7.2-16-16V64c0-17.7-14.3-32-32-32s-32 14.3-32 32V240c0 8.8-7.2 16-16 16s-16-7.2-16-16V32z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div
+              id="npcChoiceScissors"
+              class="scissorChoiceContainer"
+              value="2"
+            >
+              <div class="scissorChoice" style="height: 50px; width: 50px">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                  <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                  <path
+                    d="M40 208c-22.1 0-40 17.9-40 40s17.9 40 40 40l180.2 0c-7.6 8.5-12.2 19.7-12.2 32c0 25.3 19.5 46 44.3 47.9c-7.7 8.5-12.3 19.8-12.3 32.1c0 26.5 21.5 48 48 48l32 0 64 0c70.7 0 128-57.3 128-128l0-113.1c0-40.2-16-78.8-44.4-107.3C444.8 76.8 413.9 64 381.7 64L336 64c-21.3 0-39.3 13.9-45.6 33.1l74.5 23.7c8.4 2.7 13.1 11.7 10.4 20.1s-11.7 13.1-20.1 10.4L288 129.9l0 .1L84 65.8C62.9 59.2 40.5 70.9 33.8 92s5.1 43.5 26.2 50.2L269.5 208 40 208z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mainResultContainer">
+        <div class="mainResultIcons">
+          <div class="mainResultIconsTrophy">
+            <svg
+              width="201"
+              height="201"
+              viewBox="0 0 201 201"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M31.1411 6.28125C31.1411 4.61536 31.8029 3.0177 32.9809 1.83974C34.1588 0.661773 35.7565 0 37.4224 0L163.047 0C164.713 0 166.311 0.661773 167.489 1.83974C168.667 3.0177 169.329 4.61536 169.329 6.28125C169.329 13.0399 169.178 19.4719 168.901 25.5772C173.865 26.3992 178.614 28.2068 182.868 30.8935C187.123 33.5801 190.796 37.0913 193.671 41.2202C196.547 45.349 198.566 50.0118 199.611 54.9336C200.655 59.8554 200.704 64.9366 199.754 69.8775C198.803 74.8184 196.873 79.5189 194.077 83.7019C191.281 87.8849 187.676 91.4657 183.474 94.2331C179.272 97.0005 174.558 98.8986 169.611 99.8152C164.663 100.732 159.583 100.649 154.668 99.5704C144.744 122.999 131.076 134.456 119.079 137.396V164.694L136.98 169.167C139.417 169.77 141.716 170.863 143.726 172.37L166.816 189.694C167.871 190.485 168.65 191.588 169.043 192.846C169.436 194.104 169.423 195.454 169.006 196.705C168.589 197.956 167.79 199.044 166.72 199.814C165.651 200.585 164.366 201 163.047 201H37.4224C36.104 201 34.8191 200.585 33.7497 199.814C32.6802 199.044 31.8803 197.956 31.4635 196.705C31.0466 195.454 31.0337 194.104 31.4268 192.846C31.8199 191.588 32.599 190.485 33.6536 189.694L56.7435 172.37C58.7535 170.863 61.0524 169.77 63.4896 169.167L81.3911 164.694V137.396C69.3939 134.456 55.7259 122.999 45.8016 99.5578C40.8844 100.642 35.7999 100.73 30.8483 99.8159C25.8967 98.9021 21.1784 97.0054 16.972 94.2378C12.7657 91.4701 9.15659 87.8876 6.3579 83.7018C3.5592 79.516 1.62765 74.8119 0.677325 69.8671C-0.273001 64.9224 -0.222836 59.8374 0.824858 54.9124C1.87255 49.9874 3.89653 45.3222 6.77726 41.1925C9.65799 37.0628 13.3371 33.5521 17.5972 30.868C21.8573 28.1838 26.6121 26.3806 31.5808 25.5647C31.2851 19.1411 31.1385 12.7116 31.1411 6.28125ZM32.3848 38.19C25.8295 39.3894 20.0192 43.1438 16.2321 48.6272C12.4449 54.1107 10.9911 60.8739 12.1906 67.4292C13.39 73.9845 17.1444 79.7948 22.6278 83.582C28.1113 87.3691 34.8745 88.8229 41.4298 87.6234C37.2465 74.4328 34.0431 58.1518 32.3848 38.19ZM159.052 87.6234C165.608 88.8229 172.371 87.3691 177.854 83.582C183.338 79.7948 187.092 73.9845 188.292 67.4292C189.491 60.8739 188.037 54.1107 184.25 48.6272C180.463 43.1438 174.653 39.3894 168.097 38.19C166.427 58.1644 163.223 74.4328 159.052 87.6234Z"
+                fill="#FFD233"
+              />
+            </svg>
+          </div>
+          <div class="mainResultIconsStars">
+            <svg
+              width="504"
+              height="297"
+              viewBox="0 0 504 297"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M57.5 112L70.4096 151.732H112.186L78.3881 176.287L91.2977 216.018L57.5 191.463L23.7023 216.018L36.6119 176.287L2.81425 151.732H44.5904L57.5 112Z"
+                fill="#D9D9D9"
+                fill-opacity="0.83"
+              />
+              <path
+                d="M106 51L113.633 74.4934L138.336 74.4934L118.351 89.0132L125.985 112.507L106 97.9868L86.0153 112.507L93.6488 89.0132L73.6641 74.4934L98.3665 74.4934L106 51Z"
+                fill="#D9D9D9"
+                fill-opacity="0.83"
+              />
+              <path
+                d="M373.5 0L385.062 35.5856H422.479L392.208 57.5788L403.771 93.1644L373.5 71.1712L343.229 93.1644L354.792 57.5788L324.521 35.5856H361.938L373.5 0Z"
+                fill="#D9D9D9"
+                fill-opacity="0.83"
+              />
+              <path
+                d="M439 160L453.593 204.914H500.819L462.613 232.672L477.206 277.586L439 249.828L400.794 277.586L415.387 232.672L377.181 204.914H424.407L439 160Z"
+                fill="#D9D9D9"
+                fill-opacity="0.83"
+              />
+              <path
+                d="M238 36L241.592 47.0557H253.217L243.812 53.8885L247.405 64.9443L238 58.1115L228.595 64.9443L232.188 53.8885L222.783 47.0557H234.408L238 36Z"
+                fill="#D9D9D9"
+                fill-opacity="0.83"
+              />
+              <path
+                d="M131 0L134.592 11.0557H146.217L136.812 17.8885L140.405 28.9443L131 22.1115L121.595 28.9443L125.188 17.8885L115.783 11.0557H127.408L131 0Z"
+                fill="#D9D9D9"
+                fill-opacity="0.83"
+              />
+              <path
+                d="M238 36L241.592 47.0557H253.217L243.812 53.8885L247.405 64.9443L238 58.1115L228.595 64.9443L232.188 53.8885L222.783 47.0557H234.408L238 36Z"
+                fill="#D9D9D9"
+                fill-opacity="0.83"
+              />
+              <path
+                d="M458 87L461.592 98.0557H473.217L463.812 104.889L467.405 115.944L458 109.111L448.595 115.944L452.188 104.889L442.783 98.0557H454.408L458 87Z"
+                fill="#D9D9D9"
+                fill-opacity="0.83"
+              />
+              <path
+                d="M124 265L127.592 276.056H139.217L129.812 282.889L133.405 293.944L124 287.111L114.595 293.944L118.188 282.889L108.783 276.056H120.408L124 265Z"
+                fill="#D9D9D9"
+                fill-opacity="0.83"
+              />
+            </svg>
+          </div>
+        </div>
+        <div class="mainResultTextContainer">
+          <div id="resultMsg" class="resultMsg"></div>
+          <div id="mainResultText" class="mainResultText"></div>
+        </div>
+        <div class="mainResultButtonContainer">
+          <div id="mainResultPlayAgainBtn" class="playAgainButton">
+            PLAY AGAIN
+          </div>
+        </div>
+      </div>
+      <div class="buttonsContainer">
+        <div id="rulesButton" class="rulesButton button">RULES</div>
+        <div id="nextButton" class="nextButton button">NEXT</div>
+      </div>
+      <div class="gameRulesContainer">
+        <div class="rulesContainer">
+          <div class="rulesHeading">Game Rules</div>
+          <div class="rulesDetails">
+            <ul class="ulGameRules">
+              <li class="liGameRules">
+                <span>
+                  Rock beats scissors, scissors beat paper, and paper beats
+                  rock.
+                </span>
+              </li>
+              <li class="liGameRules">
+                <span>
+                  Agree ahead of time whether you'll count off “rock, paper,
+                  scissors, shoot” or just “rock, paper, scissors.”
+                </span>
+              </li>
+              <li class="liGameRules">
+                <span>
+                  Use rock, paper, scissors to settle minor decisions or simply
+                  play to pass the time
+                </span>
+              </li>
+              <li class="liGameRules">
+                <span>
+                  If both players lay down the same hand, each player lays down
+                  another hand
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="closeRulesButton"></div>
+      </div>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
