@@ -49,6 +49,8 @@ function getNPCChoice() {
 
 // Function to determine the winner
 function getWinner(player, npc) {
+    console.log('Player',player);
+    console.log('npc',npc);
     if (player === npc) return 'draw';
     if ((player === 'rock' && npc === 'scissors') ||
         (player === 'paper' && npc === 'rock') ||
