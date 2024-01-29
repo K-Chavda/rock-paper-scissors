@@ -1,4 +1,3 @@
-make it better without changing it's functionality:
 
 // Get DOM elements
 const gameRules = document.querySelector(".rulesButton");
