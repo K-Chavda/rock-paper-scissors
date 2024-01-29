@@ -104,7 +104,8 @@ function handlePlayerChoice(playerChoice) {
       document.getElementById('resultMessage').textContent =
         'YOU LOST AGAINT PC';
     } else {
-      document.getElementById('resultMessage').textContent = "IT'S A DRAW";
+      document.getElementById('resultMessage').textContent = "TIE UP";
+      playAgainBtn.textContent = "TIE UP";
     }
 
     if (resolve == 'paper') {
