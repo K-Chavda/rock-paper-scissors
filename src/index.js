@@ -89,6 +89,7 @@ function handlePlayerChoice(playerChoice) {
         playAgainBtn.textContent = gameWinner === 'draw' ? "REPLAY" : "PLAY AGAIN";
 
         const npcChoiceElements = document.getElementById(`npcChoice${resolve.charAt(0).toUpperCase() + resolve.slice(1)}`);
+        console.log(`npcChoice${resolve.charAt(0).toUpperCase() + resolve.slice(1)}`);
         npcChoiceElements.style.display = 'flex';
 
         if (gameWinner === 'player') {
