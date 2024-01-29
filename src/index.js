@@ -105,7 +105,7 @@ function handlePlayerChoice(playerChoice) {
         'YOU LOST AGAINT PC';
     } else {
       document.getElementById('resultMessage').textContent = "TIE UP";
-      playAgainBtn.textContent = "TIE UP";
+      playAgainBtn.textContent = "REPLAY";
     }
 
     if (resolve == 'paper') {
