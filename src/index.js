@@ -14,7 +14,7 @@ playAgainBtn.addEventListener('click', () => {
 });
 
 resultPlayAgainBtn.addEventListener('click', () => {
-  localStorage.clear();
+  // localStorage.clear();
   location.reload();
 });
 
